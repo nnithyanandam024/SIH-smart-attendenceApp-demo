@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Campus - Login</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .login-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 25px;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 18px;
+      text-align: left;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    input:focus {
+      border-color: #667eea;
+      outline: none;
+    }
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .login-btn:hover {
+      opacity: 0.9;
+    }
+    .error-message {
+      color: #e74c3c;
+      font-size: 13px;
+      margin-top: 8px;
+      display: none;
+    }
+    .credentials {
+      margin-top: 25px;
+      text-align: left;
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+    .credentials h3 {
+      margin: 5px 0;
+      color: #333;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Smart Campus Login</h1>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="userid">ID</label>
+        <input type="text" id="userid" placeholder="Enter Student/Staff ID" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter Password" required>
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+      <div class="error-message" id="errorMsg">Invalid ID or Password</div>
+    </form>
+
+    <!-- Demo Credentials -->
+    <div class="credentials">
+      <h3>👨‍🎓 Student Login → ID: CS21B001 | Pass: 123456</h3>
+      <h3>👩‍🏫 Staff Login → ID: STF001 | Pass: admin123</h3>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const errorMsg = document.getElementById("errorMsg");
+
+    loginForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const id = document.getElementById("userid").value.trim();
+      const pass = document.getElementById("password").value.trim();
+
+      // Demo credentials
+      if (id === "CS21B001" && pass === "123456") {
+        window.location.href = "dashboard.html"; // Student dashboard
+      } else if (id === "STF001" && pass === "admin123") {
+        window.location.href = "staffdashboard.html"; // Staff dashboard
+      } else {
+        errorMsg.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
