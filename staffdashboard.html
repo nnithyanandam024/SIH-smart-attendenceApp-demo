@@ -580,7 +580,7 @@
                     <div class="quick-actions">
                         <button class="action-btn priority" onclick="openMovementPass()">
                             <h3>🎫 Generate Pass</h3>
-                            <p>Create movement pass for students</p>
+                            <p>Create Campus pass for students</p>
                         </button>
                         <button class="action-btn">
                             <h3>📋 Mark Attendance</h3>
@@ -604,7 +604,7 @@
             <div class="sidebar">
                 <!-- Movement Pass Log -->
                 <div class="sidebar-card">
-                    <h3>🎫 Movement Pass Log</h3>
+                    <h3>🎫 Campus Pass Log</h3>
                     
                     <div class="pass-request">
                         <div class="pass-student-avatar">RG</div>
@@ -651,7 +651,7 @@
     <!-- Movement Pass Modal -->
     <div id="movementPassModal" class="modal">
         <div class="modal-content">
-            <h3>🎫 Generate Movement Pass</h3>
+            <h3>🎫 Generate Campus Pass</h3>
             <div class="form-group">
                 <label for="studentId">Student ID</label>
                 <input type="text" id="studentId" placeholder="Enter Student ID or Roll Number">
@@ -748,7 +748,7 @@
             document.getElementById("activePass").style.display = "block";
             document.getElementById("activePass").innerHTML = `
                 <div class="active-pass">
-                    <h4>✅ Movement Pass Generated</h4>
+                    <h4>✅ Campus Pass Generated</h4>
                     <p><strong>Pass ID:</strong> ${passId}</p>
                     <p><strong>Student:</strong> ${studentId}</p>
                     <p><strong>Destination:</strong> ${dest}</p>
