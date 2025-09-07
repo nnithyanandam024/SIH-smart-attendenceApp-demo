@@ -208,6 +208,216 @@
             border: 2px solid #ffc107;
         }
 
+        /* Activity Planner Styles */
+        .activity-planner-section {
+            margin: 30px 0;
+        }
+
+        .overall-progress {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .overall-progress h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #28a745, #20c997);
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+
+        .activity-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .category-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.1);
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .category-header h3 {
+            color: #333;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .category-progress {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mini-progress-bar {
+            width: 60px;
+            height: 6px;
+            background: #e9ecef;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .mini-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .category-progress span {
+            font-size: 12px;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .task-list {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding-right: 5px;
+        }
+
+        .task-item {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .task-item:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+        }
+
+        .task-item.completed {
+            background: #f8f9fa;
+            border-color: #28a745;
+        }
+
+        .task-item.completed .task-text {
+            text-decoration: line-through;
+            color: #6c757d;
+        }
+
+        .task-content {
+            flex: 1;
+        }
+
+        .task-text {
+            display: block;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .task-date {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .task-actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .task-toggle {
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            background: #e9ecef;
+            color: #666;
+        }
+
+        .task-toggle:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .task-toggle.completed {
+            background: #28a745;
+            color: white;
+        }
+
+        .task-delete {
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            background: #e9ecef;
+            color: #666;
+        }
+
+        .task-delete:hover {
+            background: #dc3545;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .add-task-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .add-task-btn:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4c93 100%);
+            transform: translateY(-2px);
+        }
+
         .quick-actions {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -567,6 +777,10 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 5px;
             }
+
+            .activity-categories {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -637,7 +851,7 @@
                 <!-- Active Movement Pass Display -->
                 <div id="activePass" style="display: none;">
                     <div class="active-pass">
-                        <h4>🎫 Active Movement Pass</h4>
+                        <h4>🎫 Active Campus Pass</h4>
                         <p id="passDestination">Destination: Library</p>
                         <div class="pass-timer" id="passTimer">15:00</div>
                         <p id="passExpiry">Expires at 2:30 PM</p>
@@ -708,9 +922,76 @@
             </div>
         </div>
 
+             <!-- Activity Planner Section -->
+<div class="activity-planner-section">
+    <div class="attendance-card">
+        <h2>🎯 Student Activity Planner</h2>
+        
+        <!-- Overall Progress -->
+        <div class="overall-progress">
+            <h3>Overall Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="overallProgress" style="width: 0%"></div>
+            </div>
+            <p><span id="overallPercentage">0</span>% Complete 
+            (<span id="overallCompleted">0</span>/<span id="overallTotal">0</span> tasks)</p>
+        </div>
+
+        <!-- Activity Categories -->
+        <div class="activity-categories">
+            
+            <!-- Interest -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h3>🎨 Based on Interest</h3>
+                    <div class="category-progress">
+                        <div class="mini-progress-bar">
+                            <div class="mini-progress-fill" id="interestProgress"></div>
+                        </div>
+                        <span id="interestPercentage">0%</span>
+                    </div>
+                </div>
+                <div class="task-list" id="interestTasks"></div>
+                <button class="add-task-btn" onclick="showAddTaskModal('interest')">+ Add Task</button>
+            </div>
+
+            <!-- Strength -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h3>💪 Based on Strength</h3>
+                    <div class="category-progress">
+                        <div class="mini-progress-bar">
+                            <div class="mini-progress-fill" id="strengthProgress"></div>
+                        </div>
+                        <span id="strengthPercentage">0%</span>
+                    </div>
+                </div>
+                <div class="task-list" id="strengthTasks"></div>
+                <button class="add-task-btn" onclick="showAddTaskModal('strength')">+ Add Task</button>
+            </div>
+
+            <!-- Career Goals -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h3>🚀 Based on Career Goals</h3>
+                    <div class="category-progress">
+                        <div class="mini-progress-bar">
+                            <div class="mini-progress-fill" id="careerProgress"></div>
+                        </div>
+                        <span id="careerPercentage">0%</span>
+                    </div>
+                </div>
+                <div class="task-list" id="careerTasks"></div>
+                <button class="add-task-btn" onclick="showAddTaskModal('career')">+ Add Task</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
         <div class="quick-actions">
             <button class="action-btn priority" onclick="openMovementPass()">
-                <h3>🎫 Movement Pass</h3>
+                <h3>🎫 Campus Pass</h3>
                 <p>Generate pass for movement during class hours</p>
             </button>
 
@@ -740,10 +1021,12 @@
             </button>
         </div>
 
+   
+
         <!-- Movement Pass Modal -->
         <div id="movementPassModal" class="modal">
             <div class="modal-content">
-                <h3>🎫 Generate Movement Pass</h3>
+                <h3>🎫 Generate Campus Pass</h3>
                 <div class="form-group">
                     <label for="passReason">Reason for Movement:</label>
                     <select id="passReason" onchange="updateDestinationOptions()">
@@ -782,7 +1065,7 @@
                 </div>
 
                 <div id="passPreview" class="pass-preview" style="display: none;">
-                    <h4>Movement Pass Preview</h4>
+                    <h4>Campus Pass Preview</h4>
                     <div class="pass-qr">QR CODE</div>
                     <p><strong>Pass ID:</strong> <span id="previewPassId"></span></p>
                     <p><strong>Student:</strong> CS21B001</p>
@@ -879,8 +1162,122 @@
             </div>
         </div>
     </div> <!-- closes dashboard-container -->
+
+     <!-- Add Task Modal -->
+    <div id="addTaskModal" class="modal">
+        <div class="modal-content">
+            <h3 id="addTaskTitle">➕ Add Task</h3>
+            <div class="form-group">
+                <label for="taskTitle">Task Title</label>
+                <select id="taskTitle">
+                    <option value="">Select Task</option>
+                    <option value="Join Photography Club">Join Photography Club</option>
+                    <option value="Practice Coding Problems">Practice Coding Problems</option>
+                    <option value="Prepare Resume">Prepare Resume</option>
+                    <option value="Attend Workshop">Attend Workshop</option>
+                    <option value="Sports Training">Sports Training</option>
+                </select>
+            </div>
+            <div class="form-group"><label for="taskDueDate">Due Date</label><input type="date" id="taskDueDate"></div>
+            <div class="form-group">
+                <label for="taskPriority">Priority</label>
+                <select id="taskPriority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <div style="text-align:right;">
+                <button class="btn-primary" onclick="addTask()">Add Task</button>
+                <button class="btn-secondary" onclick="closeModal('addTaskModal')">Cancel</button>
+            </div>
+        </div>
+    </div>
     
     <script>
+        // Activity Planner Functions
+let currentCategory = '';
+
+function showAddTaskModal(category) {
+    currentCategory = category;
+    const titles = {
+        'interest': '🎨 Add Interest-Based Task',
+        'strength': '💪 Add Strength-Based Task',
+        'career': '🚀 Add Career-Based Task'
+    };
+    document.getElementById('addTaskTitle').textContent = titles[category];
+    document.getElementById('addTaskModal').style.display = 'block';
+    document.getElementById('taskTitle').value = '';
+    document.getElementById('taskDueDate').value = '';
+    document.getElementById('taskPriority').value = 'medium';
+}
+
+function addTask() {
+    const title = document.getElementById('taskTitle').value.trim();
+    const dueDate = document.getElementById('taskDueDate').value;
+    const priority = document.getElementById('taskPriority').value;
+    if (!title || !dueDate) {
+        alert('Please enter title and due date.');
+        return;
+    }
+    const taskList = document.getElementById(currentCategory + 'Tasks');
+    const taskItem = document.createElement('div');
+    taskItem.className = 'task-item';
+    const formattedDate = new Date(dueDate).toLocaleDateString('en-US', {month: 'short', day: 'numeric'});
+    taskItem.innerHTML = `
+        <div class="task-content">
+            <span class="task-text">${title}</span>
+            <span class="task-date">Due: ${formattedDate}</span>
+        </div>
+        <div class="task-actions">
+            <button class="task-toggle" onclick="toggleTask(this)">○</button>
+            <button class="task-delete" onclick="deleteTask(this)">×</button>
+        </div>
+    `;
+    taskList.appendChild(taskItem);
+    updateProgress();
+    closeModal('addTaskModal');
+}
+
+function toggleTask(button) {
+    const taskItem = button.closest('.task-item');
+    const isCompleted = taskItem.classList.contains('completed');
+    if (isCompleted) {
+        taskItem.classList.remove('completed');
+        button.textContent = '○';
+        button.classList.remove('completed');
+    } else {
+        taskItem.classList.add('completed');
+        button.textContent = '✓';
+        button.classList.add('completed');
+    }
+    updateProgress();
+}
+
+function deleteTask(button) {
+    button.closest('.task-item').remove();
+    updateProgress();
+}
+
+function updateProgress() {
+    const categories = ['interest', 'strength', 'career'];
+    let totalTasks = 0, totalCompleted = 0;
+    categories.forEach(category => {
+        const tasks = document.querySelectorAll(`#${category}Tasks .task-item`);
+        const completed = document.querySelectorAll(`#${category}Tasks .task-item.completed`).length;
+        const percentage = tasks.length ? Math.round((completed / tasks.length) * 100) : 0;
+        document.getElementById(category + 'Progress').style.width = percentage + '%';
+        document.getElementById(category + 'Percentage').textContent = percentage + '%';
+        totalTasks += tasks.length;
+        totalCompleted += completed;
+    });
+    const overall = totalTasks ? Math.round((totalCompleted / totalTasks) * 100) : 0;
+    document.getElementById('overallProgress').style.width = overall + '%';
+    document.getElementById('overallPercentage').textContent = overall;
+    document.getElementById('overallCompleted').textContent = totalCompleted;
+    document.getElementById('overallTotal').textContent = totalTasks;
+}
+
         // Logout
         function logout() {
             alert("Logging out...");
@@ -987,7 +1384,7 @@
         function cancelPass() {
             clearInterval(passTimerInterval);
             document.getElementById("activePass").style.display = "none";
-            alert("Your movement pass has been cancelled.");
+            alert("Your Campus pass has been cancelled.");
         }
 
         // Teacher Tracker - Filter
